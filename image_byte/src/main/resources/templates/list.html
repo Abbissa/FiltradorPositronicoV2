@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmnls:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: darkslateblue;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-family: monospace;
+        font-size: 25px;
+        border: 3px solid #dddddd;
+        width: 100%;
+    }
+
+    th {
+        background-color: #213832;
+        border: rgb(128, 106, 184) 3px thick;
+    }
+
+    td {
+        border: 3px solid #dddddd;
+    }
+
+
+
+    th,
+    td {
+        padding: 10px;
+        color: white;
+        text-align: center;
+        justify-content: center;
+
+    }
+
+    tr:nth-child(even) {
+        background-color: #43bc77
+    }
+
+    tr:nth-child(odd) {
+        background-color: #43bc9c;
+    }
+</style>
+
+<body>
+
+    <div>
+        <h1>Image</h1>
+
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Image</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr th:each="gen: ${gen_images}">
+                    <td th:text="${gen.id}"></td>
+                    <td th:text="${gen.name}"></td>
+                    <td th:text="${gen.description}"></td>
+                    <td>
+                        <img alt="${gen.description}" th:src="@{'/imageByte/img/' + ${gen.image}}" width="200 px">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
